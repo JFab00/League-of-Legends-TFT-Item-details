@@ -16,4 +16,4 @@ Now the details are pretty outdated (even the champions images won't update sinc
 
 ## Footer
 If you want to update this project, be my guest 🤣🤣.  
-Here you can find a link to the github pages: 
+Here you can find a link to the github pages: https://jfab00.github.io/League-of-Legends-TFT-Item-details/
