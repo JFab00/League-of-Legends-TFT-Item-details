@@ -15,5 +15,6 @@ If you hover over one of the "minions" (champions) you get the details of that m
 Now the details are pretty outdated (even the champions images won't update since are not the same enymore...)  
 
 ## Footer
-If you want to update this project, be my guest 🤣🤣.  
+If you want to update this project, be my guest 🤣🤣, it would be easier making it from beginning.  
+It is kinda bad made, since I could've use bootstrap to make the things easier, but I didn't even know what bootstrap was at that time...  
 Here you can find a link to the github pages: https://jfab00.github.io/League-of-Legends-TFT-Item-details/
