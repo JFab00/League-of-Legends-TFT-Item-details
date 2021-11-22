@@ -2,7 +2,7 @@
   
 In my spare item I like to play videogames... Back in the day I used to play a lot of League of Legends (Now I don't play it anymore)...  
 When Teamfight Tactics got released I really liked it, but I struggled remembering the details of the certain items it had, so I've decided to make an HTML file, with a bit of CSS, and through JS see the details of the certain items that were in the game.  
-It was really helpfull if you had 2 monitors  
+It was really helpfull if you had two monitors.  
 
 ## Images
 When you hover over an item the details of the item are shown down there  
@@ -15,6 +15,6 @@ Now the details are pretty outdated (even the champions images won't update sinc
 
 ## Footer
 If you want to update this project, be my guest 🤣🤣, it would be easier making it from beginning.  
-It is kinda bad made, since I could've use bootstrap to make the things easier, but I didn't even know what bootstrap was at that time...  
-Also, it has 0 responsive, so don't even try opening it if your monitor dimensions are less than 1920x1080...
+It is kinda bad made, since I could've use **bootstrap** to make the things easier, but I didn't even know what bootstrap was at that time...  
+Also, it has **0 responsive**, so don't even try opening it if your monitor dimensions are less than 1920x1080...
 Here you can find a link to the github pages: https://jfab00.github.io/League-of-Legends-TFT-Item-details/
