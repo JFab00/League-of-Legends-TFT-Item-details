@@ -1,0 +1,694 @@
+<html>
+    <head>
+        <title>TFT DOUG</title>
+        <style>
+            html{
+                font-family: calibri;
+                text-align: center;
+            }
+            
+            body{
+                background-image: url("https://i.imgur.com/OYjq9mQ.jpg");
+            }
+
+	    #items img{
+		width: 50px;
+		height: 50px;
+	    }
+
+	    .details img{
+		width: 50px;
+		height: 50px;
+	    }
+
+            #row{
+                background-color: #005655;
+            }
+            .row{
+                background-color: #003c3b;
+            }
+            #items{
+                border-collapse:collapse;
+                border: 1px solid black;
+                background-color: #009c9a;
+                margin-right: 15px;
+                float: left;
+            }
+            #items td{
+                padding: 5px;
+                border: 1px solid black;
+            }
+
+            .details{
+                border: 1px solid black;
+                width: 680px;
+                height: auto;
+                margin-top: 10px;
+                max-height: 100px;
+                float: left;
+            }
+            .details img{
+                float:left;
+                padding-top: auto;
+                padding-bottom:auto;
+                margin: 18px;
+            }
+            .details p{
+                float:left;
+                max-width: 550px;
+                padding-top: auto;
+                padding-bottom:auto;
+                text-align: justify;
+                padding: 0px 15px 5px 0px;
+                font-family: calibri;
+                font-size: 19px;
+                font-weight: bold;
+            }
+
+            .detailsChamp{
+                border: 1px solid black;
+                width: 1140px;
+                height: auto;
+                margin-top: 10px;
+                max-height: 100px;
+                float: left;
+                background-color: white;
+            }
+            .detailsChamp img{
+                float:left;
+                padding-top: auto;
+                padding-bottom:auto;
+                margin: 18px;
+                width: 65px;
+                height: 65px;
+            }
+            .detailsChamp p{
+                float:left;
+                max-width: 1000px;
+                padding-top: auto;
+                padding-bottom:auto;
+                text-align: justify;
+                padding: 0px 15px 5px 0px;
+                font-family: calibri;
+                font-size: 19px;
+                font-weight: bold;
+            }
+
+            #text{
+                display: none;
+            }
+            #champs{
+                border-collapse:collapse;
+                float: left;
+                border: 1px solid black;
+                text-align: center;
+                width: 186px;
+                height: 187px;
+                font-size: 12px;
+                background-color: white;
+                margin: 5px 5px 0 0;
+            }
+            #champs th{
+                font-size: 18px;
+                font-family: calibri;
+            }
+            #champs td{
+                padding: 0;
+                border: 1px solid black;
+            }
+            #champs p{
+                margin: auto;
+                max-width: 330px;
+                padding: 5px;
+            }
+            #champs img{
+                width: 30px;
+                height: 10xp;
+            }
+
+            #champs span{
+                font-size: 20px;
+            }
+            .items{
+                width: 682px;
+                height: 800px;
+                float: left;
+                margin-right: 5px;
+            }
+            .champs{
+                width: 1150px;
+                float: left;
+                border: 1px solid black;
+                padding:0 0px 5px 8px;
+                background-color: #005655;
+            }
+
+            .tooltip {
+                position: relative;
+                display: inline-block;
+                border-bottom: 1px dotted black;
+            }
+
+            .tooltip .tooltiptext {
+                visibility: hidden;
+                width: 520px;
+                background-color: #555;
+                padding: 15px;
+                color: #fff;
+                text-align: center;
+                border-radius: 6px;
+                /* Position the tooltip */
+                position: absolute;
+                z-index: 1;
+                
+                bottom: -500%;
+               /* left: 45%;**/
+                margin-left: -535px;
+            }
+
+           /* .tooltip .tooltiptext::after {
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                margin-left: -5px;
+                border-width: 5px;
+                border-style: solid;
+                border-color: #555 transparent transparent transparent;
+            }*/
+
+            .tooltip:hover .tooltiptext {
+                visibility: visible;
+            }
+            
+            .details{
+                background-color: white;
+            }
+
+        </style>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <div class="items">
+            <table id="items">
+                <tr id="row">
+                    <td></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/1.png"><span id="text">Attack Damange +20</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/5.png"><span id="text">Armor +20</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/7.png"><span id="text">Health +200</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/3.png"><span id="text">Ability Power +20</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/6.png"><span id="text">Magic Resist +20</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/2.png"><span id="text">Attack Speed +20%</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/4.png"><span id="text">Starting Mana +20</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/8.png"><span id="text">It must do <em>something</em>...</span></td>
+                </tr>
+                <tr>
+                    <td id="row"><img src="https://cdn.leagueofgraphs.com/img/tft/items/1.png"><span id="text">Attack Damange +20</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/11.png"><span id="text">Attack Damange +40, and grants 150% bonus critical strike damage</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/15.png"><span id="text">Attack Damange +20, Armor +20, and revives champion after 2 seconds with 1000hp</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/17.png"><span id="text">Attack Damange +20, Health +200, and at the beginning of the battle the wearer and 2 champs to the left and right (5 champs) gain 15% Attack Speed</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/13.png"><span id="text">Attack Damange +20, Ability Power +20, and heal for 33% of damage dealt by champ and not by items</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/16.png"><span id="text">Attack Damange +20, Magic Resist +20, and regen 50% of damage dealt by basics</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/12.png"><span id="text">Attack Damange +20, Attack Speed +20%, and every second has a 5% chance to gain 100% critical strike until the end of combat</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/14.png"><span id="text">Attack Damange +20, Starting Mana +20, and after casting the ultimate for the first time, basic attack restore 15% of maximum mana on-hit</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/18.png"><span id="text">Attack Damange +40, and the wearer becomes an assassin</span></td>
+                </tr>
+                <tr>
+                    <td id="row"><img src="https://cdn.leagueofgraphs.com/img/tft/items/5.png"><span id="text">Armor +20</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/15.png"><span id="text">Attack Damange +20, Armor +20, and revives champion after 2 seconds with 1000hp</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/55.png"><span id="text">Armor +40, and reflect 100% of damage mitigated from attacks</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/57.png"><span id="text">Armor +20, Health +200, and attacks deal 13% of the enemy's maximum Health as burn damage over 5s and prevent healing</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/35.png"><span id="text">Armor +20, Ability Power +20, and at the start of combat, allies within 2 hexes in the same row gain a shield that blocks 250 damage.</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/56.png"><span id="text">Armor +20, Magic Resist +20, and attacks have a chance to disarm for 4s</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/25.png"><span id="text">Armor +20, Attack Speed +20%, and wearer dodges all Critical Strikes</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/45.png"><span id="text">Armor +20, Starting Mana +20, and adjacent enemies have their Attack Speed reduced by 25%</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/58.png"><span id="text">Armor +40, and wearer becomes Knight</span></td>
+                </tr>
+                <tr>
+                    <td id="row"><img src="https://cdn.leagueofgraphs.com/img/tft/items/7.png"><span id="text">Health +200</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/17.png"><span id="text">Attack Damange +20, Health +200, and at the beginning of the battle the wearer and 2 champs to the left and right (5 champs) gain 15% Attack Speed</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/57.png"><span id="text">Armor +20, Health +200, and attacks deal 13% of the enemy's maximum Health as burn damage over 5s and prevent healing</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/77.png"><span id="text">Health +400, and regenerates 6% of missing health per second</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/37.png"><span id="text">Health +200, Ability Power +20, and spells deal burn damage equal to 25.0% of the enemy's maximum health over 5.0s and prevent healing</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/67.png"><span id="text">Health +200, Magic Resit +20, and on start of combat an enemy  is banished for 5s</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/27.png"><span id="text">Health +200, Attack Speed +20%, and attacks deal 10% of the wearer's max Health as splash damage</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/47.png"><span id="text">Health +200, Starting Mana +20, and on crossing below 25% Health, heal all nearby allies for 1000 Health</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/78.png"><span id="text">Health +400, and the wearer becomes a Glacial</span></td>
+                </tr>
+                <tr>
+                    <td id="row"><img src="https://cdn.leagueofgraphs.com/img/tft/items/3.png"><span id="text">Ability Power +20</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/13.png"><span id="text">Attack Damange +20, Ability Power +20, and heal for 33% of damage dealt by champ and not by items</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/35.png"><span id="text">Armor +20, Ability Power +20, and at the start of combat, allies within 2 hexes in the same row gain a shield that blocks 250 damage.</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/37.png"><span id="text">Health +200, Ability Power +20, and spells deal burn damage equal to 25.0% of the enemy's maximum health over 5.0s and prevent healing</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/33.png"><span id="text">Ability Power +40, and increases Ability Power by 50%</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/36.png"><span id="text">Ability Power +20, Magic Resit +20, and whenever an enemy casts a spell, they take 150 damage</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/23.png"><span id="text">Ability Power +20, Attack Speed +20%, and attacks grant 4% Attack Speed. Stacks infinitely.</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/34.png"><span id="text">Ability Power +20, Starting Mana +20, and spells deal 200 splash damage on hit.</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/38.png"><span id="text">Ability Power +40, and wearer becomes a Sorcer</span></td>
+                </tr>
+                <tr>
+                    <td id="row"><img src="https://cdn.leagueofgraphs.com/img/tft/items/6.png"><span id="text">Magic Resist +20</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/16.png"><span id="text">Attack Damange +20, Magic Resist +20, and regen 50% of damage dealt by basics</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/56.png"><span id="text">Armor +20, Magic Resist +20, and attacks have a chance to disarm for 4s</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/67.png"><span id="text">Health +200, Magic Resit +20, and on start of combat an enemy  is banished for 5s</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/36.png"><span id="text">Ability Power +20, Magic Resit +20, and whenever an enemy casts a spell, they take 150 damage</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/66.png"><span id="text">Magic Resist +40, and gain 83% resistance to magic damage</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/26.png"><span id="text">Magic Resist +20, Attack Speed +20%, and attacks on-hit have a low chance to reduce enemy's star level by 1 for the rest of combat</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/46.png"><span id="text">Magic Resist +20, Starting Mana +20, and attacks on-hit have a high chance to silence, preventing the enemy from casting spells for 3s</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/68.png"><span id="text">Magic Resist +40, and summon a spirit who mirrors your attacks dealing 25.0% Damage</span></td>
+                </tr>
+                <tr>
+                    <td id="row"><img src="https://cdn.leagueofgraphs.com/img/tft/items/2.png"><span id="text">Attack Speed +20%</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/12.png"><span id="text">Attack Damange +20, Attack Speed +20%, and every second has a 5% chance to gain 100% critical strike until the end of combat</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/25.png"><span id="text">Armor +20, Attack Speed +20%, and wearer dodges all Critical Strikes</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/27.png"><span id="text">Health +200, Attack Speed +20%, and attacks deal 10% of the wearer's max Health as splash damage</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/23.png"><span id="text">Ability Power +20, Attack Speed +20%, and attacks grant 4% Attack Speed. Stacks infinitely.</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/26.png"><span id="text">Magic Resist +20, Attack Speed +20%, and attacks on-hit have a low chance to reduce enemy's star level by 1 for the rest of combat</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/22.png"><span id="text">Attack Speed +40%, and wearer's attacks cannot be dodged. Attack Range is doubled</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/24.png"><span id="text">Attack Speed +20%, Starting Mana +20, and every 3rd attack deals 90 splash magical damage</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/28.png"><span id="text">Attack Speed +40%, and the wearer becomes a Blademaster</span></td>
+                </tr>
+                <tr>
+                    <td id="row"><img src="https://cdn.leagueofgraphs.com/img/tft/items/4.png"><span id="text">Starting Mana +20</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/14.png"><span id="text">Attack Damange +20, Starting Mana +20, and after casting the ultimate for the first time, basic attack restore 15% of maximum mana on-hit</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/45.png"><span id="text">Armor +20, Starting Mana +20, and adjacent enemies have their Attack Speed reduced by 25%</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/47.png"><span id="text">Health +200, Starting Mana +20, and on crossing below 25% Health, heal all nearby allies for 1000 Health</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/34.png"><span id="text">Ability Power +20, Starting Mana +20, and spells deal 200 splash damage on hit.</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/46.png"><span id="text">Magic Resist +20, Starting Mana +20, and attacks on-hit have a high chance to silence, preventing the enemy from casting spells for 3s</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/24.png"><span id="text">Attack Speed +20%, Starting Mana +20, and every 3rd attack deals 90 splash magical damage</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/44.png"><span id="text">Starting Mana +40, and the wearer regains 20 mana after spellcast</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/48.png"><span id="text">Starting Mana +40, and the wearer becomes a Deomn</span></td>
+                </tr>
+                <tr>
+                    <td id="row"><img src="https://cdn.leagueofgraphs.com/img/tft/items/8.png"><span id="text">It must do <em>something</em>...</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/18.png"><span id="text">Attack Damange +40, and the wearer becomes an assassin</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/58.png"><span id="text">Armor +40, and wearer becomes Knight</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/78.png"><span id="text">Health +400, and the wearer becomes a Glacial</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/38.png"><span id="text">Ability Power +40, and wearer becomes a Sorcer</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/68.png"><span id="text">Magic Resist +40, and summon a spirit who mirrors your attacks dealing 25.0% Damage</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/28.png"><span id="text">Attack Speed +40%, and the wearer becomes a Blademaster</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/48.png"><span id="text">Starting Mana +40, and the wearer becomes a Deomn</span></td>
+                    <td><img src="https://cdn.leagueofgraphs.com/img/tft/items/88.png"><span id="text">Increases the unit capacity by 1</span></td>
+                </tr>
+            </table>
+            <div class="details">
+                <img>
+                <p></p>
+            </div>
+        </div>
+        <div class="champs">
+
+            <table id="champs">
+                <tr><th colspan="4">Demon</th></tr>
+                <tr>
+                    <td>
+                        <div class="tooltip">
+                            <img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/c/cc/AatroxSquare.png/revision/latest/scale-to-width-down/46?cb=20180612203801">
+                            <span class="tooltiptext">Cost 3 | Demon | Blademaster | <br>Slams forward, dealing magic damage to all enemies in a circle</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="tooltip">
+                            <img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/a/ab/BrandSquare.png/revision/latest/scale-to-width-down/46?cb=20150402215533">
+                            <span class="tooltiptext">Cost 4 | Demon | Elementalist | <br>Unleashes a fireball that bounces 4 / 6 / 20 times between enemies, dealing magic damage with each bounce.</span>
+                        </div>
+                    </td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/9/91/EliseSquare.png/revision/latest/scale-to-width-down/46?cb=20160526212517"><span class="tooltiptext">Cost 1 | Demon | Shapeshifter | <br>Summons 1 / 2 / 4 Spiderlings with 500 health, and transforms into a Melee role melee attacker for 60 seconds, gaining 60 / 90 / 120% life steal. The Spiderlings can gain the Demon bonus.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/5/5b/EvelynnSquare.png/revision/latest/scale-to-width-down/46?cb=20170926190158"><span class="tooltiptext">Cost 3 | Demon | Assassin | <br>Roots the 3 closest enemies for 0.35 seconds, after which deals magic damage to the 3 closest enemies and blinks back 3 hexes. Damage is increased to enemies below 65% health.</span></div></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/d/d8/MorganaSquare.png/revision/latest/scale-to-width-down/46?cb=20190226165233"><span class="tooltiptext">Cost 3 | Demon | Sorcerer | <br>After a 0.5-second delay, fires chains to nearby enemies up to 3 hexes away, dealing 200 / 325 / 450 magic damage, and slowing them by 20% while the chains hold. After 3 seconds if the chains held, deals the same damage and stuns them for 2 / 4 / 6 seconds.</span></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/8/8c/SwainSquare.png/revision/latest/scale-to-width-down/46?cb=20180201124449"><span class="tooltiptext">Cost 5 | Demon | Shapeshifter | Imperial | <br>Transforms for 6 seconds, dealing magic damage to all nearby enemies with each tick while healing health with each tick. At the end of his transformation, sends out a burst of energy dealing magic damage to nearby enemies.</span></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/c/c2/VarusSquare.png/revision/latest/scale-to-width-down/46?cb=20171215205843"><span class="tooltiptext">Cost 1 | Demon | Ranger | <br>After charging for 1.5 seconds, fires an arrow up to 8 hexes away, dealing magic damage to all enemies hit.</span></td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="font-weight: bold"><p>Demons have a chance on-hit to deplete the target's current mana and deal true damage equal to the mana depleted.</p></td>
+                </tr>
+                <tr style="font-weight: bold">
+                    <td colspan="1"><p>2 = 20%</p></td>
+                    <td colspan="2"><p>4 = 35%</p></td>
+                    <td colspan="1"><p>6 = 60%</p></td>
+                </tr>
+            </table> <!-- Aatrox Brand Elise Evelynn Morgana Swain Varus (7)-->
+            <table id="champs">
+                <tr><th colspan="3">Dragon</th></tr>
+                <tr>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/c/c3/Aurelion_SolSquare.png/revision/latest/scale-to-width-down/46?cb=20160308215107"><span class="tooltiptext">Cost 4 | Dragon | Sorcerer | <br>After a 0.35-second delay, magic damage to all enemies in a line.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/f/f6/ShyvanaSquare.png/revision/latest/scale-to-width-down/46?cb=20150402221059"><span class="tooltiptext">Cost 3 | Drgaon | Shapeshifter |  <br>Dashes and transforms into a ranged attacker for 60 seconds, gaining attack damage and attack range. When transformed, her attacks set enemies on fire, dealing magic damage over 3 seconds.</span></div></td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="font-weight: bold"><p>While 2 Dragons are in play, all Dragons gain 83% resistance to magic damage.</p></td>
+                </tr>
+
+            </table> <!-- Aurelion Shyvana (2)-->
+            <table id="champs">
+                <tr><th>Exile</th></tr>
+                <tr>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/c/c0/YasuoSquare.png/revision/latest/scale-to-width-down/46?cb=20150402222545"><span class="tooltiptext">Cost 5 | Exile | Blademaster | <br>Stab in a 2-hex line, applying on-hit effects and dealing magic damage. Every third cast instead launches a tornado in a 6-hex line, dealing the same magic damage and Airborne icon knocking up enemies for 1.5 seconds.</span></div></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold"><p>Exiles start combat with a shield equal to 100% of maximum health when not placed adjacent to an ally. The shield does not scale with ability power.</p></td>
+                </tr>
+            </table> <!-- Yasuo (1)-->
+            <table id="champs">
+                <tr><th colspan="3">Glacial</th></tr>
+                <tr>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/0/01/AniviaSquare.png/revision/latest/scale-to-width-down/46?cb=20151218185051"><span class="tooltiptext">Cost 5 | Glacial | Elementalist | <br>Channels a large hailstorm for 8 seconds, dealing magic damage each second and slowing the attack speed of enemies inside it by 50 / 70 / 90%. The storm can deal a total of 700 / 950 / 1200 magic damage, and is not canceled when she dies.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/4/4a/AsheSquare.png/revision/latest/scale-to-width-down/46?cb=20150402215403"><span class="tooltiptext">Cost 3 | Glacial | Ranger | <br>Fires an arrow that stuns and deals 200 / 400 / 600 magic damage to the first enemy hit. The stun lasts 1 / 1.5 / 2 seconds per hex traveled.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/b/b6/BraumSquare.png/revision/latest/scale-to-width-down/46?cb=20150402215539"><span class="tooltiptext">Cost 2 | Glacial | Guardian | <br>Raises a barrier for 4 seconds that redirects all incoming damage to Braum, and reduces the damage he takes through the shield by 70 / 80 / 90%.</span></div></td>
+                </tr>
+                <tr>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/3/36/LissandraSquare.png/revision/latest/scale-to-width-down/46?cb=20160526213305"><span class="tooltiptext">Cost 2 | Glacial | Elementalist | <br>Encases the target in ice, stunning them for 1.5 seconds and dealing magic damage to nearby enemies. She also creates a 2x2 zone for 3 seconds that slows enemies within for 3 seconds. If she is below 50% health, she instead encases herself for 2 seconds, becoming untargetable.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/9/93/SejuaniSquare.png/revision/latest/scale-to-width-down/46?cb=20150402220939"><span class="tooltiptext">Cost 4 | Glacial | Knight | <br>Creates a large glacial storm that detonates after 2 seconds, dealing magic damage and stunning for 2 / 4 / 6 seconds enemies within it.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/f/f9/VolibearSquare.png/revision/latest/scale-to-width-down/46?cb=20160526214257"><span class="tooltiptext">Cost 3 | Glacial | Brawler | <br>For 20 seconds, gains 8% increased size and empowers his basic attacks to bounce to up to 3 / 4 / 5 enemies 1 hex away, dealing 80 / 90 / 100% AD physical damage to secondary targets, and applying on-hit effects.</span></div></td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="font-weight: bold"><p>Glacials have a chance on-hit to stun for 2 seconds.</p></td>
+                </tr>
+                <tr style="font-weight: bold">
+                    <td colspan="1"><p>2 = 20%</p></td>
+                    <td colspan="1"><p>4 = 30%</p></td>
+                    <td colspan="1"><p>6 = 45%</p></td>
+                </tr>
+            </table> <!-- Anivia Ashe Braum Lissandra Sejuani Volibear (6)-->
+            <table id="champs">
+                <tr><th colspan="4">Imperial</th></tr>
+                <tr>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/5/54/DariusSquare.png/revision/latest/scale-to-width-down/46?cb=20160412191052"><span class="tooltiptext">Cost 1 | Imperial | Knight | <br>After a small delay, deals magic damage to all nearby enemies and heals himself for 100 / 150 / 200 health for each enemy hit.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/a/a7/Draven_GladiatorSquare.png/revision/latest/scale-to-width-down/46?cb=20190626173340"><span class="tooltiptext">Cost 4 | Imperial | Blademaster | <br>Draven starts spinning his axe, causing his next basic attack to gain 50 / 100 / 150% bonus on-hit physical damage and 100% attack speed for 5.75 seconds, stacking up to two times. The spinning axe ricochets off the target high up into the air, landing 2 seconds later at Draven's current position. If Draven catches an axe, Spinning Axe is reapplied for no additional cost on his next basic attack. Draven can hold up to two Spinning Axes in his hands at once.</span></div></td>
+                    <td><div class="tooltip"><img src="https://gamepedia.cursecdn.com/lolesports_gamepedia_en/a/ae/KatarinaSquare.png"><span class="tooltiptext">Cost 3 | Imperial | Assassin | <br>Channels for 2.5 seconds and fires daggers at nearby enemies, dealing magic damage per tick and applying Grievous Wounds icon Grievous Wounds, reducing healing on them for 3 seconds. The channel can deal a total of 600 / 900 / 1200 magic damage.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/8/8c/SwainSquare.png/revision/latest/scale-to-width-down/46?cb=20180201124449"><span class="tooltiptext">Cost 5 | Imperial | Shapeshifter | Demon | <br>Transforms for 6 seconds, dealing magic damage to all nearby enemies with each tick while healing health with each tick. At the end of his transformation, sends out a burst of energy dealing magic damage to nearby enemies.</span></div></td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="font-weight: bold"><p>A select number of Imperials deal double damage. This does not affect items.</p></td>
+                </tr>
+                <tr style="font-weight: bold">
+                    <td colspan="2"><p>2 = one random imperial</p></td>
+                    <td colspan="2"><p>4 = all imperials</p></td>
+                </tr>
+            </table> <!-- Darius Draven Kata Swain (4)-->
+            <table id="champs">
+                <tr><th colspan="6">Ninja</th></tr>
+                <tr>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/a/a5/AkaliSquare.png/revision/latest/scale-to-width-down/46?cb=20180726202056"><span class="tooltiptext">Cost 4 | Ninja | Assassin | <br>Deals magic damage to all enemies in a 2-hex cone. This damage has 25% chance to critically strike.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/6/69/KennenSquare.png/revision/latest/scale-to-width-down/46?cb=20160510182835"><span class="tooltiptext">Cost 3 | Ninja | Yordel | Elementalist | <br>Summons a storm around him for 3 seconds, dealing magic damage each 0.5 seconds to nearby enemies, stunning for 1.5 seconds them after 3 hits. The storm can deal a total of 225 / 450 / 675 magic damage.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/d/d3/ShenSquare.png/revision/latest/scale-to-width-down/46?cb=20160113232959"><span class="tooltiptext">Cost 3 | Ninja | Blademaster | <br>Creates a zone around himself that follows him for 3 / 4 / 5 seconds, allowing allies inside to dodge all attacks.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/b/bb/ZedSquare.png/revision/latest/scale-to-width-down/46?cb=20160526214523"><span class="tooltiptext">Cost 3 | Ninja | Assassin | <br>Throw a shuriken in a 4-hex line, dealing magic damage to enemies passed.</span></div></td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="font-weight: bold"><p>Ninjas gains attack damage and ability power</p></td>
+                </tr>
+                <tr style="font-weight: bold">
+                    <td colspan="2"><p>1 = 40 ad and 40 ap</p></td>
+                    <td colspan="4"><p>4 = 60 ad and 60 ap</p></td>
+                </tr>
+            </table> <!-- Akali Kennen Shen Zed (4)-->
+
+            <table id="champs">
+                <tr><th colspan="3">Noble</th></tr>
+                <tr>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/d/d2/FioraSquare.png/revision/latest/scale-to-width-down/46?cb=20150725010749"><span class="tooltiptext">Cost 1 | Noble | Blademaster | <br>Becomes immune to damage and spells for 1.5 seconds, and then stuns for 1.5 seconds and deals magic damage to the closest enemy.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/e/ea/GarenSquare.png/revision/latest/scale-to-width-down/46?cb=20150402220048"><span class="tooltiptext">Cost 1 | Noble | Knight | <br>Spins his sword around his body for 4 seconds, becoming immune to magic damage and dealing magic damage to nearby enemies each second.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/b/bd/KayleSquare.png/revision/latest/scale-to-width-down/46?cb=20190306074440"><span class="tooltiptext">Cost 5 | Noble | Knight | <br>Target the 1 / 2 / 3 weakest allies, making them immune to damage for 2 / 3 / 4 seconds.</span></div></td>
+                </tr>
+                <tr>                    
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/5/54/LeonaSquare.png/revision/latest/scale-to-width-down/46?cb=20150402220518"><span class="tooltiptext">Cost 4 | Noble | Guardian | <br>After a 0.625-second delay, calls down a solar ray that deals magic damage and slows all enemies within a 3x3 for 5 / 8 / 11 seconds. The enemy in the center is instead stunned for the same duration.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/1/1e/LucianSquare.png/revision/latest/scale-to-width-down/46?cb=20150402220529"><span class="tooltiptext">Cost 2 | Noble | Gunslinger | <br>Dashes away from the target enemy and then attacks twice. The first attack deals physical damage, while the second deals magic damage.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/7/72/Vayne_ArclightSquare.png/revision/latest/scale-to-width-down/46?cb=20190626173539"><span class="tooltiptext">Cost 1 | Noble | Ranger | <br>Basic attacks apply a Silver Bolts stack. Attacking a new enemy removes all stacks from the previous target. The third stack consumes them all to deal 8 / 10 / 12% of target's maximum health bonus true damage.</span></div></td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="font-weight: bold"><p>Grants 60 armor and 60 magic resistance and basic attacks restore 35 health on-hit</p></td>
+                </tr>
+                <tr style="font-weight: bold">
+                    <td colspan="1"><p>3 = a random ally</p></td>
+                    <td colspan="2"><p>6 = the whole team</p></td>
+                </tr>
+            </table> <!-- Fiora Garen Kayle Leona Lucian Vayne (6)-->
+            <table id="champs">
+                <tr><th colspan="4">Phantom</th></tr>
+                <tr>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/e/e1/KarthusSquare.png/revision/latest/scale-to-width-down/46?cb=20160326090500"><span class="tooltiptext">Cost 5 | Phantom | Sorcerer | <br>Channel for 3 seconds to deal 400 / 700 / 1000 magic damage to 5 / 9 / 13 random enemies.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/6/6e/KindredSquare.png/revision/latest/scale-to-width-down/46?cb=20160526213008"><span class="tooltiptext">Cost 4 | Phantom | Ranger | <br>Creates a zone around herself for 4 / 5 / 6 seconds that prevents nearby allies from losing health at 300 / 600 / 900 or below.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/4/4d/MordekaiserSquare.png/revision/latest/scale-to-width-down/46?cb=20190529201459"><span class="tooltiptext">Cost 1 | Phantom | Knight | <br>Slam forward in a 3-hex line, dealing magic damage to the two closest enemies within.</span></div></td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="font-weight: bold"><p>While 2 Phantoms are in play, a random enemy will begin combat with 100 health. Works against epic monsters, but deals less damage.</p></td>
+                </tr>
+            </table> <!-- Karthus Kindred Morde (3)-->
+            <table id="champs">
+                <tr><th colspan="5">Pirate</th></tr>
+                <tr>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/8/89/Gangplank_CaptainSquare.png/revision/latest/scale-to-width-down/46?cb=20190626173420"><span class="tooltiptext">Cost 3 | Pirate | Blademaster | Gunslinger | <br>Periodically spawns Powder Kegs. Detonates all active Powder Kegs, applying on-hit effects and dealing 200 / 325 / 450 magic damage to enemies caught in the blast.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/c/c9/Graves_CutthroatSquare.png/revision/latest/scale-to-width-down/46?cb=20190626173447"><span class="tooltiptext">Cost 1 | Pirate | Gunslinger | <br>Basic attacks deal 5 / 10 / 15% increased physical damage and hit all enemies in a 2-hex cone.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/e/e9/Miss_Fortune_CaptainFortuneSquare.png/revision/latest/scale-to-width-down/46?cb=20190626173523"><span class="tooltiptext">Cost 5 | Pirate | Gunslinger | <br>Channels for 3 seconds and fires 14 waves of bullets in a cone, dealing magic damage with each wave. The channel can deal a total of 800 / 1250 / 1700 magic damage.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/8/83/PykeSquare.png/revision/latest/scale-to-width-down/46?cb=20180522232638"><span class="tooltiptext">Cost 2 | Pirate | Assassin | <br>Dash behind the furthest enemy, creating a 1 second afterimage that then follows to deal magic damage and stun all enemies it passes through for 2 / 2.5 / 3 seconds.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/6/61/Twisted_Fate_CutpurseSquare.png/revision/latest/scale-to-width-down/46?cb=20190704104837"><span class="tooltiptext">Cost 2 | Pirate | Sorcerer | <br>After a small delay, randomly selects one of three cards, enhancing his next basic attack to deal 150 / 250 / 350 bonus magic damage and apply an additional effect: Blue Card: Restores 20 / 35 / 50 mana to himself and surrounding allies. Red Card: Deals the same magic damage to enemies surrounding the target. Gold Card: Stuns the target for 2 / 3 / 4 seconds</span></div></td>
+                </tr>
+                <tr>
+                    <td colspan="5" style="font-weight: bold"><p>While 3 Pirates are in play, you begin each PvP round with a chest that grants between 0 and 4 gold, with an average value of 1.75 gold per chest.</p></td>
+                </tr>
+            </table> <!-- GP Graves MF Pyke TF (5)-->
+            <table id="champs">
+                <tr><th>Robot</th></tr>
+                <tr>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/5/5b/BlitzcrankSquare.png/revision/latest/scale-to-width-down/46?cb=20150402215457"><span class="tooltiptext">Cost 2 | Robot | Brawler | <br>Pulls the farthest enemy into melee range, stunning them for 2.5 seconds and dealing 100 / 450 / 800 magic damage. Additionally his next basic attack knocks up the target.</span></div></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold"><p>Robots begin combat with full mana.</p></td>
+                </tr>
+            </table> <!-- Blitz (1)-->
+            <table id="champs">
+                <tr><th colspan="4">Void</th></tr>
+                <tr>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/a/ae/Cho%27GathSquare.png/revision/latest/scale-to-width-down/46?cb=20150402215703"><span class="tooltiptext">Cost 4 | Void | Brawler | <br>After a 1.5-second delay, deals 200 / 400 / 600 magic damage and knocks up all enemies in a 3x3 area, stunning them for 1.5 / 1.75 / 2 seconds.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/5/57/KassadinSquare.png/revision/latest/scale-to-width-down/46?cb=20150402220329"><span class="tooltiptext">Cost 1 | Void | Sorcerer | <br>Basic attacks reduce target's current mana by 20 / 40 / 60, granting a shield for the same amount lasting 4 seconds.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/1/14/Kha%27ZixSquare.png/revision/latest/scale-to-width-down/46?cb=20160526212833"><span class="tooltiptext">Cost 1 | Assassin | Void | <br>Deals 150 / 300 / 450 magic damage to the target enemy. Instead deals 400 / 600 / 800 magic damage if they have no allies adjacent to them.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/3/3e/Rek%27SaiSquare.png/revision/latest/scale-to-width-down/46?cb=20160526213622"><span class="tooltiptext">Cost 2 | Void | Brawler | <br>Burrows into the ground, becoming untargetable for 1 second while healing each 0.5 seconds for 150 / 300 / 450 health in total. She then unburrows, dealing 200 / 350 / 500 magic damage and knocking up for 1.75 seconds the closest enemy.</span></div></td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="font-weight: bold"><p>While 3 Void units are in play, Void units deal true damage.</p></td>
+                </tr>
+            </table> <!-- Cho Kassadin Kha Rek (4)-->
+            <table id="champs">
+                <tr><th colspan="5">Wild</th></tr>
+                <tr>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/1/18/AhriSquare.png/revision/latest/scale-to-width-down/46?cb=20150402215212"><span class="tooltiptext">Cost 2 | Wild | Sorcerer | <br>Fire an orb in a 5-hex line that then returns, dealing 100 / 200 / 300 magic damage to enemies in each pass.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/6/6b/GnarSquare.png/revision/latest/scale-to-width-down/46?cb=20160526212623"><span class="tooltiptext">Cost 4 | Wild | Yordle | Shapeshifter | <br>Transforms into a Melee role melee attacker for 60 seconds, gaining 300 / 600 / 900 health, 30 / 60 / 90 attack damage, jumping behind the farthest enemy and then shunts all surrounding enemies 2 hexes toward his team, Stun icon stunning them for 2 seconds and dealing 200 / 300 / 400 magic damage.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/7/7c/NidaleeSquare.png/revision/latest/scale-to-width-down/46?cb=20150402220734"><span class="tooltiptext">Cost 1 | Wild | Shapeshifter | <br>After a 0.5-second delay, heals herself and the weakest ally over 6 seconds, healing for a total of 150 / 375 / 600 health, then transforms into a melee attacker for 60 seconds, gaining 20 / 70 / 120 attack damage.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/f/f1/RengarSquare.png/revision/latest/scale-to-width-down/46?cb=20150402220904"><span class="tooltiptext">Cost 3 | Wild | Assassin | <br>Leaps at the weakest enemy, dealing 200 / 300 / 400% AD physical damage. After leaping, for 6 seconds, he gains 25% critical strike chance and increases his total attack speed by 40 / 70 / 100%.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/4/42/WarwickSquare.png/revision/latest/scale-to-width-down/46?cb=20170110204118"><span class="tooltiptext">Cost 1 | Wild | Brawler | <br>Pounces onto the lowest health enemy, stunning them for 1.5 seconds, applying on-hit effects and dealing 150 / 225 / 300 magic damage over 3 hits and healing over the duration.</span></div></td>
+                </tr>
+                <tr>
+                    <td colspan="5" style="font-weight: bold"><p>Wildlings generate Fury on-hit, up to 5. Each stack gives 10% attack speed, up to 50% attack speed.</p></td>
+                </tr>
+                <tr style="font-weight: bold">
+                    <td colspan="2"><p>2 = Only Wildlings</p></td>
+                    <td colspan="3"><p>4 = All allies</p></td>
+                </tr>
+            </table> <!-- Ahri Gnar Nidalee Rengar Warwick (5)-->
+
+            <table id="champs">
+                <tr><th colspan="3">Yordle</th></tr>
+                <tr>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/6/6b/GnarSquare.png/revision/latest/scale-to-width-down/46?cb=20160526212623"><span class="tooltiptext">Cost 4 | Yordle | Wild | Shapeshifter | <br>Transforms into a Melee role melee attacker for 60 seconds, gaining 300 / 600 / 900 health, 30 / 60 / 90 attack damage, jumping behind the farthest enemy and then shunts all surrounding enemies 2 hexes toward his team, Stun icon stunning them for 2 seconds and dealing 200 / 300 / 400 magic damage.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/6/69/KennenSquare.png/revision/latest/scale-to-width-down/46?cb=20160510182835"><span class="tooltiptext">Cost 3 | Yordle | Ninja | Elementalist | <br>Summons a storm around him for 3 seconds, dealing magic damage each 0.5 seconds to nearby enemies, stunning for 1.5 seconds them after 3 hits. The storm can deal a total of 225 / 450 / 675 magic damage.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/9/91/LuluSquare.png/revision/latest/scale-to-width-down/46?cb=20150402220550"><span class="tooltiptext">Cost 2 | Yordle | Sorcerer | <br>Grants 1 / 2 / 3 allies 300 / 475 / 650 bonus health for 6 seconds, knocking up enemies near them for 1.25 seconds.</span></div></td>
+                </tr>
+                <tr>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/e/e3/PoppySquare.png/revision/latest/scale-to-width-down/46?cb=20151124204455"><span class="tooltiptext">Cost 3 | Yordle | Knight | <br>After charging for 0.75 seconds, swings her hammer at 1 / 2 / 3 closest enemies, dealing 300 / 500 / 700 magic damage in a line, knocking up for 1 second and stunning for 2 / 3 / 4 seconds.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/0/06/TristanaSquare.png/revision/latest/scale-to-width-down/46?cb=20150402221501"><span class="tooltiptext">Cost 3 | Yordle | Gunslinger | <br>Plant a bomb on the target enemy that detonates after 4 seconds or 3 basic attacks, dealing 60 / 90 / 120 magic damage to enemies within 2 hexes. The damage is increased by 50% with each basic attack, dealing up to 150 / 225 / 300 magic damage.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/8/8f/VeigarSquare.png/revision/latest/scale-to-width-down/46?cb=20150402222337"><span class="tooltiptext">Cost 3 | Yordle | Sorcerer | <br>Deals 300 / 500 / 700 magic damage to the target enemy. If the target is a lower star level than Veigar, the target is executed.</span></div></td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="font-weight: bold"><p>Yordles have a chance to dodge enemy basic attacks and on-hit effects.</p></td>
+                </tr>
+                <tr style="font-weight: bold">
+                    <td colspan="1"><p>3 = 30%</p></td>
+                    <td colspan="2"><p>6 = 55%</p></td>
+                </tr>
+            </table> <!-- Gnar Kennen Lulu Poppy Tristana Veigar (6)-->
+            <table id="champs">
+                <tr><th colspan="4">Assassin</th></tr>
+                <tr>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/a/a5/AkaliSquare.png/revision/latest/scale-to-width-down/46?cb=20180726202056"><span class="tooltiptext">Cost 4 | Assassin | Ninja | <br>Deals magic damage to all enemies in a 2-hex cone. This damage has 25% chance to critically strike.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/5/5b/EvelynnSquare.png/revision/latest/scale-to-width-down/46?cb=20170926190158"><span class="tooltiptext">Cost 3 | Assassin | Demon | <br>Roots the 3 closest enemies for 0.35 seconds, after which deals magic damage to the 3 closest enemies and blinks back 3 hexes. Damage is increased to enemies below 65% health.</span></div></td>
+                    <td><div class="tooltip"><img src="https://gamepedia.cursecdn.com/lolesports_gamepedia_en/a/ae/KatarinaSquare.png"><span class="tooltiptext">Cost 3 | Assassin | Imperial | <br>Channels for 2.5 seconds and fires daggers at nearby enemies, dealing magic damage per tick and applying Grievous Wounds icon Grievous Wounds, reducing healing on them for 3 seconds. The channel can deal a total of 600 / 900 / 1200 magic damage.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/1/14/Kha%27ZixSquare.png/revision/latest/scale-to-width-down/46?cb=20160526212833"><span class="tooltiptext">Cost 1 | Assassin | Void | <br>Deals 150 / 300 / 450 magic damage to the target enemy. Instead deals 400 / 600 / 800 magic damage if they have no allies adjacent to them.</span></div></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/8/83/PykeSquare.png/revision/latest/scale-to-width-down/46?cb=20180522232638"><span class="tooltiptext">Cost 2 | Assassin | Pirate | <br>Dash behind the furthest enemy, creating a 1 second afterimage that then follows to deal magic damage and stun all enemies it passes through for 2 / 2.5 / 3 seconds.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/f/f1/RengarSquare.png/revision/latest/scale-to-width-down/46?cb=20150402220904"><span class="tooltiptext">Cost 3 | Assassin | Wild | <br>Leaps at the weakest enemy, dealing 200 / 300 / 400% AD physical damage. After leaping, for 6 seconds, he gains 25% critical strike chance and increases his total attack speed by 40 / 70 / 100%.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/b/bb/ZedSquare.png/revision/latest/scale-to-width-down/46?cb=20160526214523"><span class="tooltiptext">Cost 3 | Assassin | Ninja | <br>Throw a shuriken in a 4-hex line, dealing magic damage to enemies passed.</span></div></td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="font-weight: bold"><p>Assassins gain bonus critical strike damage</p></td>
+                </tr>
+                <tr style="font-weight: bold">
+                    <td colspan="2"><p>3 = 125%</p></td>
+                    <td colspan="2"><p>6 = 350%</p></td>
+                </tr>
+            </table> <!-- Assassins -->
+            <table id="champs">
+                <tr><th colspan="3">Blademaster</th></tr>
+                <tr>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/c/cc/AatroxSquare.png/revision/latest/scale-to-width-down/46?cb=20180612203801"><span class="tooltiptext">Cost 3 | Blademaster | Demon | <br>Slams forward, dealing magic damage to all enemies in a circle</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/a/a7/Draven_GladiatorSquare.png/revision/latest/scale-to-width-down/46?cb=20190626173340"><span class="tooltiptext">Cost 4 | Blademaster | Imperial | <br>Draven starts spinning his axe, causing his next basic attack to gain 50 / 100 / 150% bonus on-hit physical damage and 100% attack speed for 5.75 seconds, stacking up to two times. The spinning axe ricochets off the target high up into the air, landing 2 seconds later at Draven's current position. If Draven catches an axe, Spinning Axe is reapplied for no additional cost on his next basic attack. Draven can hold up to two Spinning Axes in his hands at once.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/d/d2/FioraSquare.png/revision/latest/scale-to-width-down/46?cb=20150725010749"><span class="tooltiptext">Cost 1 | Blademaster | Noble | <br>Becomes immune to damage and spells for 1.5 seconds, and then stuns for 1.5 seconds and deals magic damage to the closest enemy.</span></div></td>
+                </tr>
+                <tr>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/8/89/Gangplank_CaptainSquare.png/revision/latest/scale-to-width-down/46?cb=20190626173420"><span class="tooltiptext">Cost 3 | Blademaster | Pirate | Gunslinger | <br>Periodically spawns Powder Kegs. Detonates all active Powder Kegs, applying on-hit effects and dealing 200 / 325 / 450 magic damage to enemies caught in the blast.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/d/d3/ShenSquare.png/revision/latest/scale-to-width-down/46?cb=20160113232959"><span class="tooltiptext">Cost 3 | Blademaster | Ninja | <br>Creates a zone around himself that follows him for 3 / 4 / 5 seconds, allowing allies inside to dodge all attacks.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/c/c0/YasuoSquare.png/revision/latest/scale-to-width-down/46?cb=20150402222545"><span class="tooltiptext">Cost 5 | Blademaster | Exile | <br>Stab in a 2-hex line, applying on-hit effects and dealing magic damage. Every third cast instead launches a tornado in a 6-hex line, dealing the same magic damage and Airborne icon knocking up enemies for 1.5 seconds.</span></div></td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="font-weight: bold"><p>Blademasters have a 45% chance to perform a multi-attack on-hit.</p></td>
+                </tr>
+                <tr style="font-weight: bold">
+                    <td colspan="1"><p>3 = 1 additional strike</p></td>
+                    <td colspan="1"><p>6 = 2 additional strike</p></td>
+                    <td colspan="1"><p>9 = 4 additional strike</p></td>
+                </tr>
+            </table> <!-- Blademaster -->
+            <table id="champs">
+                <tr><th colspan="6">Brawler</th></tr>
+                <tr>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/5/5b/BlitzcrankSquare.png/revision/latest/scale-to-width-down/46?cb=20150402215457"><span class="tooltiptext">Cost 2 | Brawler | Robot | <br>Pulls the farthest enemy into melee range, stunning them for 2.5 seconds and dealing 100 / 450 / 800 magic damage. Additionally his next basic attack knocks up the target.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/a/ae/Cho%27GathSquare.png/revision/latest/scale-to-width-down/46?cb=20150402215703"><span class="tooltiptext">Cost 4 | Brawler | Void | <br>After a 1.5-second delay, deals 200 / 400 / 600 magic damage and knocks up all enemies in a 3x3 area, stunning them for 1.5 / 1.75 / 2 seconds.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/3/3e/Rek%27SaiSquare.png/revision/latest/scale-to-width-down/46?cb=20160526213622"><span class="tooltiptext">Cost 2 | Brawler | Void | <br>Burrows into the ground, becoming untargetable for 1 second while healing each 0.5 seconds for 150 / 300 / 450 health in total. She then unburrows, dealing 200 / 350 / 500 magic damage and knocking up for 1.75 seconds the closest enemy.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/f/f9/VolibearSquare.png/revision/latest/scale-to-width-down/46?cb=20160526214257"><span class="tooltiptext">Cost 3 | Brawler | Glacial | <br>For 20 seconds, gains 8% increased size and empowers his basic attacks to bounce to up to 3 / 4 / 5 enemies 1 hex away, dealing 80 / 90 / 100% AD physical damage to secondary targets, and applying on-hit effects.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/4/42/WarwickSquare.png/revision/latest/scale-to-width-down/46?cb=20170110204118"><span class="tooltiptext">Cost 1 | Brawler | Wild | <br>Pounces onto the lowest health enemy, stunning them for 1.5 seconds, applying on-hit effects and dealing 150 / 225 / 300 magic damage over 3 hits and healing over the duration.</span></div></td>
+                </tr>
+                <tr>
+                    <td colspan="6" style="font-weight: bold"><p>Brawlers gain additional maximum health.</p></td>
+                </tr>
+                <tr style="font-weight: bold">
+                    <td colspan="2"><p>2 = +300</p></td>
+                    <td colspan="3"><p>4 = +700</p></td>
+                    <!--<td colspan="2"><p>6 = +1200</p></td>-->
+                </tr>
+            </table> <!-- Brawler -->
+            <table id="champs">
+                <tr><th colspan="6">Elementalist</th></tr>
+                <tr>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/0/01/AniviaSquare.png/revision/latest/scale-to-width-down/46?cb=20151218185051"><span class="tooltiptext">Cost 5 | Elementalist | Glacial | <br>Channels a large hailstorm for 8 seconds, dealing magic damage each second and slowing the attack speed of enemies inside it by 50 / 70 / 90%. The storm can deal a total of 700 / 950 / 1200 magic damage, and is not canceled when she dies.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/a/ab/BrandSquare.png/revision/latest/scale-to-width-down/46?cb=20150402215533"><span class="tooltiptext">Cost 4 | Elementalist | Demon | <br>Unleashes a fireball that bounces 4 / 6 / 20 times between enemies, dealing magic damage with each bounce.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/6/69/KennenSquare.png/revision/latest/scale-to-width-down/46?cb=20160510182835"><span class="tooltiptext">Cost 3 | Elementalist | Ninja | Yordel | <br>Summons a storm around him for 3 seconds, dealing magic damage each 0.5 seconds to nearby enemies, stunning for 1.5 seconds them after 3 hits. The storm can deal a total of 225 / 450 / 675 magic damage.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/3/36/LissandraSquare.png/revision/latest/scale-to-width-down/46?cb=20160526213305"><span class="tooltiptext">Cost 2 | Elementalist | Glacial | <br>Encases the target in ice, stunning them for 1.5 seconds and dealing magic damage to nearby enemies. She also creates a 2x2 zone for 3 seconds that slows enemies within for 3 seconds. If she is below 50% health, she instead encases herself for 2 seconds, becoming untargetable.</span></div></td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="font-weight: bold"><p>Elementalists' basic attacks grant twice as much mana. Beginning combat with 3 Elementalists will summon a Golem. This effect will fail if there are no valid spaces. The Golem has 2200 health and 100 attack damage.</p></td>
+                </tr>
+            </table> <!-- Elementalist -->
+            <table id="champs">
+                <tr><th colspan="6">Guardian</th></tr>
+                <tr>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/b/b6/BraumSquare.png/revision/latest/scale-to-width-down/46?cb=20150402215539"><span class="tooltiptext">Cost 2 | Guardian | Glacial | <br>Raises a barrier for 4 seconds that redirects all incoming damage to Braum, and reduces the damage he takes through the shield by 70 / 80 / 90%.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/5/54/LeonaSquare.png/revision/latest/scale-to-width-down/46?cb=20150402220518"><span class="tooltiptext">Cost 4 | Guardian | Noble | <br>After a 0.625-second delay, calls down a solar ray that deals magic damage and slows all enemies within a 3x3 for 5 / 8 / 11 seconds. The enemy in the center is instead stunned for the same duration.</span></div></td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="font-weight: bold"><p>Beginning combat with 2 Guardians will grant 50 armor to all other units that start adjacent to a Guardian for the rest of the combat. This effect can stack any number of times for each adjacent Guardian. Guardian do not benefit from the bonus.</p></td>
+                </tr>
+            </table> <!-- Guardian -->
+
+            <table id="champs">
+                <tr><th colspan="6">Gunslinger</th></tr>
+                <tr>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/8/89/Gangplank_CaptainSquare.png/revision/latest/scale-to-width-down/46?cb=20190626173420"><span class="tooltiptext">Cost 3 | Gunslinger | Pirate | Blademaster | <br>Periodically spawns Powder Kegs. Detonates all active Powder Kegs, applying on-hit effects and dealing 200 / 325 / 450 magic damage to enemies caught in the blast.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/c/c9/Graves_CutthroatSquare.png/revision/latest/scale-to-width-down/46?cb=20190626173447"><span class="tooltiptext">Cost 1 | Gunslinger | Pirate | <br>Basic attacks deal 5 / 10 / 15% increased physical damage and hit all enemies in a 2-hex cone.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/1/1e/LucianSquare.png/revision/latest/scale-to-width-down/46?cb=20150402220529"><span class="tooltiptext">Cost 2 | Gunslinger | Noble | <br>Dashes away from the target enemy and then attacks twice. The first attack deals physical damage, while the second deals magic damage.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/e/e9/Miss_Fortune_CaptainFortuneSquare.png/revision/latest/scale-to-width-down/46?cb=20190626173523"><span class="tooltiptext">Cost 5 | Gunslinger | Pirate | <br>Channels for 3 seconds and fires 14 waves of bullets in a cone, dealing magic damage with each wave. The channel can deal a total of 800 / 1250 / 1700 magic damage.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/0/06/TristanaSquare.png/revision/latest/scale-to-width-down/46?cb=20150402221501"><span class="tooltiptext">Cost 3 | Gunslinger | Yordle | <br>Plant a bomb on the target enemy that detonates after 4 seconds or 3 basic attacks, dealing 60 / 90 / 120 magic damage to enemies within 2 hexes. The damage is increased by 50% with each basic attack, dealing up to 150 / 225 / 300 magic damage.</span></div></td>
+                </tr>
+                <tr>
+                    <td colspan="5" style="font-weight: bold"><p>Gunslingers have a 50% chance for their attacks to hit additional enemies.</p></td>
+                </tr>
+                <tr style="font-weight: bold">
+                    <td colspan="2"><p>2 = 1 additional random enemy in range</p></td>
+                    <td colspan="3"><p>4 = 2 additional random enemy in range</p></td>
+                    <!--<td colspan="2"><p>6 = 3 additional random enemy in range</p></td>-->
+                </tr>
+            </table> <!-- Gunslinger -->
+            <table id="champs">
+                <tr><th colspan="3">Knight</th></tr>
+                <tr>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/5/54/DariusSquare.png/revision/latest/scale-to-width-down/46?cb=20160412191052"><span class="tooltiptext">Cost 1 | Knight | Imperial | <br>After a small delay, deals magic damage to all nearby enemies and heals himself for 100 / 150 / 200 health for each enemy hit.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/e/ea/GarenSquare.png/revision/latest/scale-to-width-down/46?cb=20150402220048"><span class="tooltiptext">Cost 1 | Knight | Noble | <br>Spins his sword around his body for 4 seconds, becoming immune to magic damage and dealing magic damage to nearby enemies each second.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/b/bd/KayleSquare.png/revision/latest/scale-to-width-down/46?cb=20190306074440"><span class="tooltiptext">Cost 5 | Knight | Noble | <br>Target the 1 / 2 / 3 weakest allies, making them immune to damage for 2 / 3 / 4 seconds.</span></div></td>
+                </tr>
+                <tr>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/4/4d/MordekaiserSquare.png/revision/latest/scale-to-width-down/46?cb=20190529201459"><span class="tooltiptext">Cost 1 | Knight | Phantom | <br>Slam forward in a 3-hex line, dealing magic damage to the two closest enemies within.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/e/e3/PoppySquare.png/revision/latest/scale-to-width-down/46?cb=20151124204455"><span class="tooltiptext">Cost 3 | Knight | Yordle | <br>After charging for 0.75 seconds, swings her hammer at 1 / 2 / 3 closest enemies, dealing 300 / 500 / 700 magic damage in a line, knocking up for 1 second and stunning for 2 / 3 / 4 seconds.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/9/93/SejuaniSquare.png/revision/latest/scale-to-width-down/46?cb=20150402220939"><span class="tooltiptext">Cost 4 | Knight | Glacial | <br>Creates a large glacial storm that detonates after 2 seconds, dealing magic damage and stunning for 2 / 4 / 6 seconds enemies within it.</span></div></td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="font-weight: bold"><p>Your team ignores a flat amount of damage from all sources of damage.</p></td>
+                </tr>
+                <tr style="font-weight: bold">
+                    <td colspan="1"><p>2 = 15</p></td>
+                    <td colspan="1"><p>4 = 30</p></td>
+                    <td colspan="1"><p>6 = 55</p></td>
+                </tr>
+            </table> <!-- Knight -->
+            <table id="champs">
+                <tr><th colspan="6">Ranger</th></tr>
+                <tr>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/4/4a/AsheSquare.png/revision/latest/scale-to-width-down/46?cb=20150402215403"><span class="tooltiptext">Cost 3 | Ranger | Glacial | <br>Fires an arrow that stuns and deals 200 / 400 / 600 magic damage to the first enemy hit. The stun lasts 1 / 1.5 / 2 seconds per hex traveled.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/6/6e/KindredSquare.png/revision/latest/scale-to-width-down/46?cb=20160526213008"><span class="tooltiptext">Cost 4 | Ranger | Phantom | <br>Creates a zone around herself for 4 / 5 / 6 seconds that prevents nearby allies from losing health at 300 / 600 / 900 or below.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/c/c2/VarusSquare.png/revision/latest/scale-to-width-down/46?cb=20171215205843"><span class="tooltiptext">Cost 1 | Ranger | Demon | <br>After charging for 1.5 seconds, fires an arrow up to 8 hexes away, dealing magic damage to all enemies hit.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/7/72/Vayne_ArclightSquare.png/revision/latest/scale-to-width-down/46?cb=20190626173539"><span class="tooltiptext">Cost 1 | Ranger | Noble | <br>Basic attacks apply a Silver Bolts stack. Attacking a new enemy removes all stacks from the previous target. The third stack consumes them all to deal 8 / 10 / 12% of target's maximum health bonus true damage.</span></div></td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="font-weight: bold"><p>Every 3 seconds, Rangers have a chance to gain double attack speed for 3 seconds.</p></td>
+                </tr>
+                <tr style="font-weight: bold">
+                    <td colspan="2"><p>2 = 25%</p></td>
+                    <td colspan="3"><p>4 = 65%</p></td>
+                    <!--<td colspan="2"><p>6 = 3 additional random enemy in range</p></td>-->
+                </tr>
+            </table> <!-- Ranger -->
+            <table id="champs">
+                <tr><th colspan="6">Shapeshifter</th></tr>
+                <tr>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/9/91/EliseSquare.png/revision/latest/scale-to-width-down/46?cb=20160526212517"><span class="tooltiptext">Cost 1 | Shapeshifter | Demon | <br>Summons 1 / 2 / 4 Spiderlings with 500 health, and transforms into a Melee role melee attacker for 60 seconds, gaining 60 / 90 / 120% life steal. The Spiderlings can gain the Demon bonus.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/6/6b/GnarSquare.png/revision/latest/scale-to-width-down/46?cb=20160526212623"><span class="tooltiptext">Cost 4 | Shapeshifter | Wild | Yordle | <br>Transforms into a Melee role melee attacker for 60 seconds, gaining 300 / 600 / 900 health, 30 / 60 / 90 attack damage, jumping behind the farthest enemy and then shunts all surrounding enemies 2 hexes toward his team, Stun icon stunning them for 2 seconds and dealing 200 / 300 / 400 magic damage.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/7/7c/NidaleeSquare.png/revision/latest/scale-to-width-down/46?cb=20150402220734"><span class="tooltiptext">Cost 1 | Shapeshifter | Wild | <br>After a 0.5-second delay, heals herself and the weakest ally over 6 seconds, healing for a total of 150 / 375 / 600 health, then transforms into a melee attacker for 60 seconds, gaining 20 / 70 / 120 attack damage.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/f/f6/ShyvanaSquare.png/revision/latest/scale-to-width-down/46?cb=20150402221059"><span class="tooltiptext">Cost 3 | Shapeshifter | Drgaon |  <br>Dashes and transforms into a ranged attacker for 60 seconds, gaining attack damage and attack range. When transformed, her attacks set enemies on fire, dealing magic damage over 3 seconds.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/8/8c/SwainSquare.png/revision/latest/scale-to-width-down/46?cb=20180201124449"><span class="tooltiptext">Cost 5 | Shapeshifter | Demon | Imperial | <br>Transforms for 6 seconds, dealing magic damage to all nearby enemies with each tick while healing health with each tick. At the end of his transformation, sends out a burst of energy dealing magic damage to nearby enemies.</span></div></td>
+                </tr>
+                <tr>
+                    <td colspan="6" style="font-weight: bold"><p>When Shapeshifters activate their Special Ability, they gain additional maximum health and heal for the amount gained.</p></td>
+                </tr>
+                <tr style="font-weight: bold">
+                    <td colspan="2"><p>3 = +60% of maximum health</p></td>
+                    <td colspan="3"><p>6 = +120% of maximum health</p></td>
+                    <!--<td colspan="2"><p>6 = +1200</p></td>-->
+                </tr>
+            </table> <!-- Shapeshifter -->
+            <table id="champs">
+                <tr><th colspan="4">Sorcerer</th></tr>
+                <tr>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/1/18/AhriSquare.png/revision/latest/scale-to-width-down/46?cb=20150402215212"><span class="tooltiptext">Cost 2 | Sorcerer | Wild | <br>Fire an orb in a 5-hex line that then returns, dealing 100 / 200 / 300 magic damage to enemies in each pass.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/c/c3/Aurelion_SolSquare.png/revision/latest/scale-to-width-down/46?cb=20160308215107"><span class="tooltiptext">Cost 4 | Sorcerer | Dragon | <br>After a 0.35-second delay, magic damage to all enemies in a line.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/e/e1/KarthusSquare.png/revision/latest/scale-to-width-down/46?cb=20160326090500"><span class="tooltiptext">Cost 5 | Sorcerer | Phantom | <br>Channel for 3 seconds to deal 400 / 700 / 1000 magic damage to 5 / 9 / 13 random enemies.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/5/57/KassadinSquare.png/revision/latest/scale-to-width-down/46?cb=20150402220329"><span class="tooltiptext">Cost 1 | Sorcerer | Void | <br>Basic attacks reduce target's current mana by 20 / 40 / 60, granting a shield for the same amount lasting 4 seconds.</span></div></td>
+                </tr>
+                <tr>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/9/91/LuluSquare.png/revision/latest/scale-to-width-down/46?cb=20150402220550"><span class="tooltiptext">Cost 2 | Sorcerer | Yordle | <br>Grants 1 / 2 / 3 allies 300 / 475 / 650 bonus health for 6 seconds, knocking up enemies near them for 1.25 seconds.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/d/d8/MorganaSquare.png/revision/latest/scale-to-width-down/46?cb=20190226165233"><span class="tooltiptext">Cost 3 | Sorcerer | Demon | <br>After a 0.5-second delay, fires chains to nearby enemies up to 3 hexes away, dealing 200 / 325 / 450 magic damage, and slowing them by 20% while the chains hold. After 3 seconds if the chains held, deals the same damage and stuns them for 2 / 4 / 6 seconds.</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/6/61/Twisted_Fate_CutpurseSquare.png/revision/latest/scale-to-width-down/46?cb=20190704104837"><span class="tooltiptext">Cost 2 | Sorcerer | Pirate | <br>After a small delay, randomly selects one of three cards, enhancing his next basic attack to deal 150 / 250 / 350 bonus magic damage and apply an additional effect: Blue Card: Restores 20 / 35 / 50 mana to himself and surrounding allies. Red Card: Deals the same magic damage to enemies surrounding the target. Gold Card: Stuns the target for 2 / 3 / 4 seconds</span></div></td>
+                    <td><div class="tooltip"><img src="https://vignette.wikia.nocookie.net/leagueoflegends/images/8/8f/VeigarSquare.png/revision/latest/scale-to-width-down/46?cb=20150402222337"><span class="tooltiptext">Cost 3 | Sorcerer | Yordle | <br>Deals 300 / 500 / 700 magic damage to the target enemy. If the target is a lower star level than Veigar, the target is executed.</span></div></td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="font-weight: bold"><p>Sorcerers' basic attacks grant twice as much mana. Sorcerers grant Ability power icon ability power to their team.</p></td>
+                </tr>
+                <tr style="font-weight: bold">
+                    <td colspan="2"><p>3 = +45</p></td>
+                    <td colspan="2"><p>6 = +100</p></td>
+                    <!--<td colspan="2"><p>6 = +1200</p></td>-->
+                </tr>
+            </table> <!-- Sorcerer -->
+
+        </div>
+    </body>
+</html>
